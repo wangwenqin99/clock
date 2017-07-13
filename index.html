@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#clock{
+			width: 300px;
+			height: 300px;
+			background-color: #ddd;
+			border:20px solid #666;
+			border-radius: 170px;
+			margin:30px auto;
+			position: relative;
+			box-shadow: 3px 3px #444;
+		}
+		#clock .sec-dot{
+			width: 280px;
+			height: 280px;
+			border-radius: 140px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-top: -140px;
+			margin-left: -140px;
+		}
+		#clock .sec-dot p{
+			width: 2px;
+			height:280px;
+			background-color: #666;
+			position: absolute;
+			left:50%;
+			margin-left: -1px;
+		}
+		#clock .min-dot{
+			width: 276px;
+			height: 276px;
+			border-radius: 138px;
+			background-color: #ddd;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-top: -138px;
+			margin-left: -138px;
+		}
+		#clock .min-dot p{
+			width: 2px;
+			height:276px;
+			background-color: #666;
+			position: absolute;
+			left:50%;
+			margin-left: -1px;
+		}
+		#clock .center-white{
+			width: 266px;
+			height: 266px;
+			border-radius: 133px;
+			background-image: radial-gradient(120px at center center,#fff,#ddd);
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-top: -133px;
+			margin-left: -133px;
+		}
+		#clock .center-white .hour{
+			width: 2px;
+			height:50px;
+			border-bottom: 90px solid #666;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -1px;
+			margin-top: -70px;
+			transform:rotate(0deg);
+			animation-name:hour;
+			animation-duration:86400s;
+			animation-iteration-count:infinite;
+			animation-timing-function:linear;
+		}
+		@keyframes hour{
+			100%{
+				transform:rotate(360deg);
+			}
+		}
+		#clock .center-white .min{
+			width: 2px;
+			height:80px;
+			border-bottom: 120px solid #666;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -1px;
+   			margin-top: -100px;
+			transform:rotate(90deg);
+			animation-name:min;
+			animation-duration:3600s;
+			animation-iteration-count:infinite;
+			animation-timing-function:linear;
+		}
+		@keyframes min{
+			100%{
+				transform:rotate(450deg);
+			}
+		}
+		#clock .center-white .sec{
+			width: 2px;
+			height:100px;
+			border-bottom: 140px solid #f00;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -1px;
+    		margin-top: -120px;
+			transform:rotate(180deg);
+			animation-name:sec;
+			animation-duration:60s;
+			animation-iteration-count:infinite;
+			animation-timing-function:linear;
+		}
+		@keyframes sec{
+			100%{
+				transform:rotate(540deg);
+			}
+		}
+		#clock .center-white .fix{
+			width: 6px;
+			height:6px;
+			background-color: #fff;
+			border-radius: 3px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -3px;
+    		margin-top: -3px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<!-- 秒点 -->
+		<div class="sec-dot">
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		<!-- 分点 -->
+		<div class="min-dot">
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		<!-- 中间白板 -->
+		<div class="center-white">
+			<!-- 时针 -->
+			<div class="hour"></div>
+			<!-- 分针 -->
+			<div class="min"></div>
+			<!-- 秒针 -->
+			<div class="sec"></div>
+			<!-- 钉子 -->
+			<div class="fix"></div>
+		</div>
+	</div>
+	<script>
+		var secDot = document.getElementsByClassName("sec-dot")[0].getElementsByTagName("p");
+		console.log(secDot);
+		for (var i = 0; i < secDot.length; i++) {
+			secDot[i].style.transform = "rotate" + "(" + i*6 + "deg)";
+		};
+		var minDot = document.getElementsByClassName("min-dot")[0].getElementsByTagName("p");
+		for (var j = 0; j < minDot.length; j++) {
+			minDot[j].style.transform = "rotate" + "(" + j*30 + "deg)";
+		};
+	</script>
+</body>
+</html>
